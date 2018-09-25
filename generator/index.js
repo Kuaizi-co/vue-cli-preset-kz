@@ -1,5 +1,4 @@
 const fs = require('fs')
-const rimraf = require('rimraf')
 
 module.exports = (api, opts, rootOpts) => {
   

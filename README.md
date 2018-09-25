@@ -2,6 +2,8 @@
 
 vue项目开发预设模板
 
+[https://kuaizi-co.github.io/vue-cli-preset-kz](https://kuaizi-co.github.io/vue-cli-preset-kz)
+
 ## Install
 
 ```
@@ -21,6 +23,12 @@ npm run dev
 
 ```
 npm run build
+```
+
+## Review
+
+```
+npm run review
 ```
 
 ## 功能列表
