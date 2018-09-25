@@ -1,0 +1,9 @@
+{
+  "name": "vue-cli-preset-kz",
+  "version": "0.1.0",
+  "description": "kuaizi vue app preset with vue-cli-preset",
+  "main": "preset.json",
+  "repository": "https://github.com/kuaizi-co/vue-cli-preset-kz.git",
+  "author": "tommyshao <tomieric@gmail.com>",
+  "license": "MIT"
+}
