@@ -96,4 +96,41 @@ module.exports = (api, opts, rootOpts) => {
   } else {
     api.render("./templates/default")
   }
+
+  // 删除多余目录
+  const pwaFiles = [
+    'public/robots.txt',
+    'public/manifest.json',
+    'src/registerServiceWorker.js',
+    'public/icons/android-chrome-192x192.png',
+    'public/icons/apple-touch-icon-152x152.png',
+    'public/icons/msapplication-icon-144x144.png',
+    'public/icons/safari-pinned-tab.svg'
+  ]
+
+  if (opts.pwa) {
+    api.extendPackage({
+      dependencies: {
+        "register-service-worker": "^1.0.0",
+        "sass-loader": "^7.1.0"
+      },
+      devDependencies: {
+        "@vue/cli-plugin-pwa": "^3.0.3"
+      }
+    })
+  }
+
+  api.render(files => {
+    Object.keys(files)
+            .filter(path => path.includes(`/${opts.cssPreprocessor === 'sass' ? 'less' : 'sass' }/`))
+            .forEach(path => delete files[path])
+    
+    if (!opts.pwa) {
+      Object.keys(files)
+            .filter(path => {
+                return pwaFiles.find(file => path.includes(file))
+            })
+            .forEach(path => delete files[path])
+    }
+  })
 }

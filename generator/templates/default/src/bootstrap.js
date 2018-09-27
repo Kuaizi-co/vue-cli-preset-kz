@@ -26,6 +26,10 @@ Vue.use(iView)
 import Store from './store'
 import components from './components'
 
+<% if (options.pwa) {%>
+import './registerServiceWorker'
+<% } %>
+
 export default ({ Router, Component, routes, states = {}, options }, resolve = () => {}) => {
   // 批量注册组件
   Object.values(components)

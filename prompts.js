@@ -77,6 +77,12 @@ module.exports = [
     default: false
   },
   {
+    name: 'pwa',
+    type: 'confirm',
+    message: 'Progressive Web App (PWA) Support (default: None)',
+    default: false
+  },
+  {
     name: 'SSR',
     type: 'list',
     message: 'Add support for Server-Side Rendering',

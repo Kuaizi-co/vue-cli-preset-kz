@@ -11,6 +11,16 @@ vue项目开发预设模板
 > npm install -g @vue/cli
 
 > vue create --preset kuaizi-co/vue-cli-preset-kz project-name --no-git
+
+# OR more faster!!!
+# - project-name
+# - vue-cli-preset-kz
+project-name> cd ..
+> git clone https://github.com/Kuaizi-co/vue-cli-preset-kz.git
+> cd vue-cli-preset-kz
+> git pull origin master
+> cd ..
+> vue create --preset ./vue-cli-preset-kz project-name --no-git
 ```
 
 ## Develop
@@ -41,6 +51,7 @@ npm run review
 - [x] style-resources-loader
 - [x] i18n
 - [x] axios
+- [x] PWA
 - [ ] nuxt.js/egg.js
 
 ### css预处理器全局变量
