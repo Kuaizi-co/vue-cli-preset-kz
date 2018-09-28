@@ -94,10 +94,43 @@ module.exports = [
       {
         name: 'Nuxt',
         value: 'nuxt'
+      }
+      // ,
+      // {
+      //   name: 'egg.js',
+      //   value: 'egg'
+      // }
+    ],
+    default: 'none'
+  },
+  {
+    name: 'unit',
+    type: 'list',
+    message: 'Unit Testing',
+    choices: [
+      {
+        name: 'None',
+        value: 'none'
       },
       {
-        name: 'egg.js',
-        value: 'egg'
+        name: 'mocha',
+        value: 'mocha'
+      }
+    ],
+    default: 'none'
+  },
+  {
+    name: 'e2e',
+    type: 'list',
+    message: 'E2E Testing',
+    choices: [
+      {
+        name: 'None',
+        value: 'none'
+      },
+      {
+        name: 'nightwatch',
+        value: 'nightwatch'
       }
     ],
     default: 'none'

@@ -5,5 +5,9 @@
   "main": "preset.json",
   "repository": "https://github.com/kuaizi-co/vue-cli-preset-kz.git",
   "author": "tommyshao <tomieric@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@vue/cli-plugin-unit-mocha": "^3.0.4",
+    "@vue/cli-plugin-e2e-nightwatch": "^3.0.4"
+  }
 }

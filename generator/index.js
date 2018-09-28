@@ -91,8 +91,8 @@ module.exports = (api, opts, rootOpts) => {
   // } else 
   if(opts.SSR === 'nuxt') {
     api.render("./templates/nuxt")
-  } else if (opts.SSR === 'egg') {
-    api.render("./templates/egg")
+  // } else if (opts.SSR === 'egg') {
+  //   api.render("./templates/egg")
   } else {
     api.render("./templates/default")
   }
@@ -117,6 +117,31 @@ module.exports = (api, opts, rootOpts) => {
       devDependencies: {
         "@vue/cli-plugin-pwa": "^3.0.3"
       }
+    })
+  }
+
+  // hack, 注入内置插件
+  // opts.plugins['@vue/cli-plugin-e2e-nightwatch'] = {}
+  if (opts.e2e === 'nightwatch') {
+    api.extendPackage({
+      devDependencies: {
+        '@vue/cli-plugin-e2e-nightwatch': '^3.0.4'
+      }
+    })
+    api.extendPackage(() => {
+      const loadNightwatch = require('@vue/cli-plugin-e2e-nightwatch/generator')
+      loadNightwatch(api, opts, rootOpts, api.invoking)
+    })
+  }
+  if (opts.unit === 'mocha') {
+    api.extendPackage({
+      devDependencies: {
+        '@vue/cli-plugin-unit-mocha': '^3.0.4'
+      }
+    })
+    api.extendPackage(() => {
+      const loadMocha = require('@vue/cli-plugin-unit-mocha/generator')
+      loadMocha(api, opts, rootOpts, api.invoking)
     })
   }
 
