@@ -129,8 +129,12 @@ module.exports = (api, opts, rootOpts) => {
       }
     })
     api.extendPackage(() => {
-      const loadNightwatch = require('@vue/cli-plugin-e2e-nightwatch/generator')
-      loadNightwatch(api, opts, rootOpts, api.invoking)
+      try{
+        const loadNightwatch = require('@vue/cli-plugin-e2e-nightwatch/generator')
+        loadNightwatch(api, opts, rootOpts, api.invoking)
+      } catch(err) {
+        console.log('please `npm i -g @vue/cli-plugin-e2e-nightwatch`')
+      }
     })
   }
   if (opts.unit === 'mocha') {
@@ -140,8 +144,12 @@ module.exports = (api, opts, rootOpts) => {
       }
     })
     api.extendPackage(() => {
-      const loadMocha = require('@vue/cli-plugin-unit-mocha/generator')
-      loadMocha(api, opts, rootOpts, api.invoking)
+      try{
+        const loadMocha = require('@vue/cli-plugin-unit-mocha/generator')
+        loadMocha(api, opts, rootOpts, api.invoking)
+      } catch(err) {
+        console.log('please `npm i -g @vue/cli-plugin-unit-mocha`')
+      }
     })
   }
 
