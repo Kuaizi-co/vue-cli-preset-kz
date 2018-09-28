@@ -52,6 +52,7 @@ npm run review
 - [x] i18n
 - [x] axios
 - [x] PWA
+- [x] unit(mocha)/e2e(Nightwatch)
 - [ ] nuxt.js/egg.js
 
 ### css预处理器全局变量
