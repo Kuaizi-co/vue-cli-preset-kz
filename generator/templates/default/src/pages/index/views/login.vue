@@ -1,10 +1,5 @@
 <template>
   <% if (options['ui-framework'] === 'iview') {%>
-  <Layout>
-      <Header>
-        <h1 class="brand">{{ $t('webconfig.title') }}</h1>
-        <i-language />
-      </Header>
       <Content :style="{ 'min-height': '545px' }">
         <Row>
           <Col span="8" offset="8">
@@ -26,21 +21,8 @@
           </Col>
         </Row>
       </Content>
-      <Footer>
-        <div class="copyright">
-          {{ $t('webconfig.copyright') }}
-        </div>
-      </Footer>
-  </Layout>
   <% } %>
   <% if (options['ui-framework'] === 'element-ui') {%>
-  <el-container class="login-container">
-    <el-header class="app-header">
-      <h2 class="brand">
-        {{ $t('webconfig.title') }}
-      </h2>
-      <i-language />
-    </el-header>
     <el-main>
       <el-row>
         <el-col :span="8" :offset="8">
@@ -60,21 +42,11 @@
         </el-col>
       </el-row>
     </el-main>
-    <el-footer>
-      <div class="copyright">
-        {{ $t('webconfig.copyright') }}
-      </div>
-    </el-footer>
-  </el-container>
   <% } %>
 </template>
 
 <script>
-import iLanguage from '../components/language'
 export default {
-  components: {
-    iLanguage
-  },
   data () {
     const validatePass = (rule, value, callback) => {
       if (value === '') {

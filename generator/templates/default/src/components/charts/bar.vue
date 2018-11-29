@@ -1,11 +1,19 @@
 <template>
-  <div ref="dom" class="charts chart-bar"></div>
+  <div
+    <% if (options['ui-framework'] === 'element-ui') {%>v-loading="spinShow"<% }%>
+  >
+    <div ref="dom" class="charts chart-bar">
+    </div>
+    <% if (options['ui-framework'] === 'iview') {%>
+    <Spin size="large" fix v-if="spinShow"></Spin>
+    <% } %>
+  </div>
 </template>
 
 <script>
-import echarts from 'echarts'
+import { requireEcharts } from './index'
 import tdTheme from './theme.json'
-echarts.registerTheme('tdTheme', tdTheme)
+
 export default {
   name: 'ChartBar',
   props: {
@@ -13,8 +21,13 @@ export default {
     text: String,
     subtext: String
   },
-  mounted () {
-    this.$nextTick(() => {
+  data () {
+    return {
+      spinShow: true
+    }
+  },
+  methods: {
+    initCharts () {
       let xAxisData = Object.keys(this.value)
       let seriesData = Object.values(this.value)
       let option = {
@@ -35,9 +48,24 @@ export default {
           type: 'bar'
         }]
       }
-      let dom = echarts.init(this.$refs.dom, 'tdTheme')
+      let dom = this.echarts.init(this.$refs.dom, 'tdTheme')
       dom.setOption(option)
+      this.spinShow = false
+    }
+  },
+  created () {
+    this.echarts = null
+    requireEcharts().then(echarts => {
+      this.echarts = echarts
+      this.echarts.registerTheme('tdTheme', tdTheme)
+      this.$nextTick(() => this.initCharts())
     })
   }
 }
 </script>
+
+<style>
+.charts {
+  height: 100%;
+}
+</style>

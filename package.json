@@ -1,13 +1,9 @@
 {
   "name": "vue-cli-preset-kz",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "kuaizi vue app preset with vue-cli-preset",
   "main": "preset.json",
   "repository": "https://github.com/kuaizi-co/vue-cli-preset-kz.git",
-  "author": "tommyshao <tomieric@gmail.com>",
-  "license": "MIT",
-  "devDependencies": {
-    "@vue/cli-plugin-unit-mocha": "^3.0.4",
-    "@vue/cli-plugin-e2e-nightwatch": "^3.0.4"
-  }
+  "author": "tomieric <tomieric@gmail.com>",
+  "license": "MIT"
 }

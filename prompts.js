@@ -38,22 +38,6 @@ module.exports = [
     ],
     default: 'less'
   },
-  // {
-  //   name: 'eslint',
-  //   type: 'list',
-  //   message: 'Pick a linter / formatter config:',
-  //   choices: [
-  //     {
-  //       name: 'Standard',
-  //       value: 'standard'
-  //     },
-  //     {
-  //       name: 'Airbnb',
-  //       value: 'airbnb'
-  //     }
-  //   ],
-  //   default: 'standard'
-  // },
   {
     name: 'Vue Router mode',
     type: 'list',
@@ -100,38 +84,6 @@ module.exports = [
       //   name: 'egg.js',
       //   value: 'egg'
       // }
-    ],
-    default: 'none'
-  },
-  {
-    name: 'unit',
-    type: 'list',
-    message: 'Unit Testing',
-    choices: [
-      {
-        name: 'None',
-        value: 'none'
-      },
-      {
-        name: 'mocha',
-        value: 'mocha'
-      }
-    ],
-    default: 'none'
-  },
-  {
-    name: 'e2e',
-    type: 'list',
-    message: 'E2E Testing',
-    choices: [
-      {
-        name: 'None',
-        value: 'none'
-      },
-      {
-        name: 'nightwatch',
-        value: 'nightwatch'
-      }
     ],
     default: 'none'
   },

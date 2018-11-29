@@ -1,14 +1,16 @@
 <template>
   <div class="app-view">
-    <transition name="fade" mode="out-in">
-      <router-view></router-view>
-    </transition>
+    <home-layout></home-layout>
   </div>
 </template>
 
 <script>
+import homeLayout from './components/layout'
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    homeLayout
+  }
 }
 </script>
 

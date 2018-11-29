@@ -7,7 +7,9 @@ module.exports = (api, opts, rootOpts) => {
     scripts: {
       dev: 'vue-cli-service serve --copy',
       build: 'vue-cli-service build',
-      review: 'serve -s dist'
+      review: 'serve -s dist',
+      lint: 'vue-cli-service lint',
+      serve: 'vue-cli-service serve'
     }
   })
 
@@ -54,15 +56,15 @@ module.exports = (api, opts, rootOpts) => {
   }
 
   // 扩展.babelrc 配置
-  api.extendPackage({
-    babel: {
-      env: {
-        test: {
-          plugins: ["babel-plugin-transform-es2015-modules-commonjs"]
-        }
-      }
-    }
-  })
+  // api.extendPackage({
+  //   babel: {
+  //     env: {
+  //       test: {
+  //         plugins: ["babel-plugin-transform-es2015-modules-commonjs"]
+  //       }
+  //     }
+  //   }
+  // })
 
   // 扩展 .eslintrc 配置
   api.extendPackage({
@@ -116,39 +118,6 @@ module.exports = (api, opts, rootOpts) => {
       },
       devDependencies: {
         "@vue/cli-plugin-pwa": "^3.0.3"
-      }
-    })
-  }
-
-  // hack, 注入内置插件
-  // opts.plugins['@vue/cli-plugin-e2e-nightwatch'] = {}
-  if (opts.e2e === 'nightwatch') {
-    api.extendPackage({
-      devDependencies: {
-        '@vue/cli-plugin-e2e-nightwatch': '^3.0.4'
-      }
-    })
-    api.extendPackage(() => {
-      try{
-        const loadNightwatch = require('@vue/cli-plugin-e2e-nightwatch/generator')
-        loadNightwatch(api, opts, rootOpts, api.invoking)
-      } catch(err) {
-        console.log('please `npm i -g @vue/cli-plugin-e2e-nightwatch`')
-      }
-    })
-  }
-  if (opts.unit === 'mocha') {
-    api.extendPackage({
-      devDependencies: {
-        '@vue/cli-plugin-unit-mocha': '^3.0.4'
-      }
-    })
-    api.extendPackage(() => {
-      try{
-        const loadMocha = require('@vue/cli-plugin-unit-mocha/generator')
-        loadMocha(api, opts, rootOpts, api.invoking)
-      } catch(err) {
-        console.log('please `npm i -g @vue/cli-plugin-unit-mocha`')
       }
     })
   }
